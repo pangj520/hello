@@ -1,3 +1,3 @@
-module hello
+module github.com/hello
 
 go 1.18
