@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: project-config
+  namespace: uac
+  labels:
+    name: project-config
+data:
+  PROJECT: "uac"
+  CONFIG_SPACE: "uac"
+  CONFIG_PROJECT: "ServicePublicConfig"
+  SERVICE_TAG: "uac"
+  appsettings.json: |
+    {
+      "consul": {
+        "Addr":"",
+    	"Datacenter":"guangzhou_dc1",
+    	"Token":"e7383d47-8be8-e782-a646-8be020041e3e",
+        "KeyPrefix":""
+      }
+    }

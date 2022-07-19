@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gotest
+  namespace: nef
+  labels:
+    name: gotest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: gotest
+  template:
+    metadata:
+      namespace: nef
+      labels:
+        name: gotest
+    spec:
+      nodeName: 172.20.101.15
+      containers:
+        - name: gotest
+          image: 172.18.9.30/uac/gotest:dev
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /
+              name: gosrc
+      volumes:
+        - name: gosrc
+          hostPath:
+            path: /home/admin/gotest/nef
